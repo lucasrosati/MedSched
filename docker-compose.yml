@@ -1,0 +1,34 @@
+services:
+  db:
+    build:
+      context: ./db
+    container_name: medsched_db
+    environment:
+      MYSQL_DATABASE: medsched_db
+      MYSQL_USER: medsched_user
+      MYSQL_PASSWORD: MedSched123!
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    build:
+      context: ./app
+    container_name: medsched_app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: medsched_db
+      DB_USER: medsched_user
+      DB_PASSWORD: MedSched123!
+    ports:
+      - "5001:5000"
+    command: ["python", "app.py"]
+
+volumes:
+  db_data:
