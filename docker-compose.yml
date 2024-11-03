@@ -1,3 +1,5 @@
+version: '3.8'  # versão do docker compose
+
 services:
   db:
     build:
@@ -26,6 +28,7 @@ services:
       DB_NAME: medsched_db
       DB_USER: medsched_user
       DB_PASSWORD: MedSched123!
+      OPERATION: "1"  # Defina a operação padrão aqui
     ports:
       - "5001:5000"
     command: ["python", "app.py"]

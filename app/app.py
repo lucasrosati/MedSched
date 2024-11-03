@@ -1,8 +1,5 @@
-from flask import Flask, jsonify, request
 import mysql.connector
 import os
-
-app = Flask(__name__)
 
 # Configurações de conexão com o banco de dados
 db_config = {
@@ -18,7 +15,6 @@ def get_db_connection():
     return mysql.connector.connect(**db_config)
 
 # Funções CRUD para o contexto de consultas médicas
-
 def inserir_consulta():
     id_paciente = input("Digite o ID do paciente: ")
     id_medico = input("Digite o ID do médico: ")
