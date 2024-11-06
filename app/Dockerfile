@@ -1,14 +1,14 @@
-# Utilizando a imagem oficial do Python
+# Usa a imagem oficial do Python como base
 FROM python:3.9
 
-# Definindo o diretório de trabalho
+# Define o diretório de trabalho no contêiner
 WORKDIR /app
 
-# Copiando os arquivos da aplicação para o container
+# Copia os arquivos da aplicação para o diretório de trabalho
 COPY . /app
 
-# Instalando as dependências
+# Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Comando padrão para rodar a aplicação (ajuste conforme necessário)
+# Comando para executar a aplicação
 CMD ["python", "app.py"]
