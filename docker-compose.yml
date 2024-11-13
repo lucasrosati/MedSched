@@ -7,9 +7,7 @@ services:
     container_name: medsched_db
     environment:
       MYSQL_DATABASE: medsched_db
-      MYSQL_USER: medsched_user
-      MYSQL_PASSWORD: MedSched123!
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: root  
     ports:
       - "3307:3306"
     volumes:
@@ -26,8 +24,8 @@ services:
       DB_HOST: db
       DB_PORT: 3306
       DB_NAME: medsched_db
-      DB_USER: medsched_user
-      DB_PASSWORD: MedSched123!
+      DB_USER: root
+      DB_PASSWORD: root
       OPERATION: "1"  # Defina a operação padrão aqui
     ports:
       - "5001:5000"

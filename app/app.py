@@ -5,10 +5,11 @@ import os
 db_config = {
     'host': os.getenv('DB_HOST', 'localhost'),
     'port': os.getenv('DB_PORT', '3306'),
-    'user': os.getenv('DB_USER', 'medsched_user'),
-    'password': os.getenv('DB_PASSWORD', 'MedSched123!'),
+    'user': 'root',
+    'password': 'root',
     'database': os.getenv('DB_NAME', 'medsched_db')
 }
+
 
 # Função auxiliar para conectar ao banco de dados
 def get_db_connection():
